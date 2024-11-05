@@ -1,0 +1,24 @@
+<h1>List of all actors</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= actor.id %></td>
+        <td><img src="<%= actor.image %>" alt="<%= actor.name %>" height="400"></td>
+        <td><%= actor.name %></td>
+        <td><%= actor.dob&.strftime("%Y-%m-%d") || 'Date not available' %></td>
+        <td><%= link_to "Show details", actor_path(actor) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

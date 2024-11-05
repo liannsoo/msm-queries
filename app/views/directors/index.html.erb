@@ -1,0 +1,24 @@
+<h1>List of all directors</h1>
+
+<table border='1'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Dob</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= director.id %></td>
+        <td><img src="<%= director.image%>" alt="<%= director.name %>" style="width:250px;"></td>
+        <td><%= director.name %></td>
+        <td><%= director.dob.strftime("%Y-%m-%d") unless director.dob.nil? %></td>
+        <td><%= link_to 'Show details', director_path(director) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
